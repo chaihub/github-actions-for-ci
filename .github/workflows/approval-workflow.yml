@@ -1,0 +1,14 @@
+name: Teams awesome approval workflow
+
+on: pull_request_review
+
+jobs:
+  labelWhenApproved:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a label
+      - uses: pullreminders/label-when-approved-action@master
+        env:
+          APPROVALS: "1"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADD_LABEL: "congratulations"
